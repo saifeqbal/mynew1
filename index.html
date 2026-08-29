@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian General Hospital — Care that keeps pace with your life</title>
+<meta name="description" content="Meridian General Hospital: 24/7 emergency care, specialist departments, and a physician team focused on you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12211f;
+    --navy:#0f3d3e;
+    --navy-deep:#0a2b2c;
+    --sage:#7fa99b;
+    --sage-pale:#dfe9e2;
+    --paper:#f7f5f0;
+    --paper-dim:#efece4;
+    --coral:#e8604c;
+    --coral-dim:#c94f3d;
+    --line:rgba(18,33,31,0.12);
+    --radius:2px;
+    --max:1180px;
+    --ease:cubic-bezier(.4,0,.2,1);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Newsreader',serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+    color:var(--navy-deep);
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--coral-dim);
+    font-weight:600;
+  }
+  :focus-visible{outline:2px solid var(--coral);outline-offset:3px;}
+
+  /* ---------- Emergency strip ---------- */
+  .emergency-strip{
+    background:var(--navy-deep);
+    color:var(--paper);
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.02em;
+  }
+  .emergency-strip .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:8px 28px;gap:12px;flex-wrap:wrap;
+  }
+  .emergency-strip a{color:var(--paper);border-bottom:1px solid rgba(247,245,240,0.35);}
+  .emergency-strip .dot{
+    display:inline-block;width:6px;height:6px;border-radius:50%;
+    background:var(--coral);margin-right:8px;
+    animation:blink 1.8s infinite;
+    box-shadow:0 0 0 0 rgba(232,96,76,0.6);
+  }
+  @keyframes blink{
+    0%,100%{opacity:1;} 50%{opacity:0.35;}
+  }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,245,240,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;max-width:var(--max);margin:0 auto;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Newsreader',serif;font-size:20px;font-weight:600;color:var(--navy-deep);
+  }
+  .logo svg{flex-shrink:0;}
+  .nav-links{display:flex;align-items:center;gap:32px;}
+  .nav-links a{
+    font-size:14.5px;font-weight:500;color:var(--ink);
+    position:relative;padding:4px 0;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;
+    background:var(--coral);transition:width .25s var(--ease);
+  }
+  .nav-links a:hover::after{width:100%;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:14px;font-weight:600;padding:11px 22px;
+    border-radius:var(--radius);border:1px solid transparent;
+    transition:transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+  }
+  .btn-primary{background:var(--coral);color:var(--paper);}
+  .btn-primary:hover{background:var(--coral-dim);transform:translateY(-1px);}
+  .btn-outline{border-color:var(--navy-deep);color:var(--navy-deep);}
+  .btn-outline:hover{background:var(--navy-deep);color:var(--paper);}
+  .menu-toggle{display:none;background:none;border:none;padding:6px;}
+  .menu-toggle span{display:block;width:22px;height:2px;background:var(--navy-deep);margin:5px 0;}
+
+  /* ---------- Pulse divider (signature element) ---------- */
+  .pulse-divider{
+    width:100%;overflow:hidden;line-height:0;background:var(--paper);
+  }
+  .pulse-divider.on-navy{background:var(--navy-deep);}
+  .pulse-divider svg{width:100%;height:46px;display:block;}
+  .pulse-path{
+    fill:none;stroke:var(--coral);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:1400;stroke-dashoffset:1400;
+    animation:draw 2.6s var(--ease) forwards;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--navy-deep);
+    color:var(--paper);
+    position:relative;
+    padding:88px 0 0;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;
+    padding-bottom:56px;
+  }
+  .hero-eyebrow{color:var(--sage);}
+  .hero h1{
+    color:var(--paper);
+    font-size:clamp(36px,5vw,58px);
+    line-height:1.06;
+    margin:18px 0 22px;
+    max-width:15ch;
+  }
+  .hero p.lead{
+    color:rgba(247,245,240,0.78);
+    font-size:17px;max-width:46ch;margin-bottom:32px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+  .hero-ctas .btn-outline{border-color:rgba(247,245,240,0.5);color:var(--paper);}
+  .hero-ctas .btn-outline:hover{background:var(--paper);color:var(--navy-deep);}
+  .hero-visual{
+    position:relative;
+    background:linear-gradient(160deg, rgba(127,169,155,0.18), rgba(232,96,76,0.10));
+    border:1px solid rgba(247,245,240,0.14);
+    border-radius:4px;
+    padding:30px;
+    min-height:340px;
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .vitals-card{
+    font-family:'JetBrains Mono',monospace;
+    color:var(--paper);
+  }
+  .vitals-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:12px 0;border-bottom:1px solid rgba(247,245,240,0.14);
+  }
+  .vitals-row:last-child{border-bottom:none;}
+  .vitals-label{font-size:12px;letter-spacing:0.08em;color:rgba(247,245,240,0.55);text-transform:uppercase;}
+  .vitals-value{font-size:20px;font-weight:600;color:var(--paper);}
+  .vitals-value small{font-size:12px;font-weight:400;color:rgba(247,245,240,0.55);margin-left:4px;}
+  .live-line{width:100%;height:60px;margin-top:18px;}
+  .live-line path{
+    fill:none;stroke:var(--coral);stroke-width:2;
+  }
+
+  /* ---------- Stat bar ---------- */
+  .stat-bar{
+    background:var(--sage-pale);
+    border-bottom:1px solid var(--line);
+  }
+  .stat-bar .wrap{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    padding:36px 28px;gap:20px;
+  }
+  .stat{text-align:left;border-left:2px solid var(--navy-deep);padding-left:16px;}
+  .stat .num{
+    font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:600;color:var(--navy-deep);
+    display:block;
+  }
+  .stat .label{font-size:13px;color:var(--ink);opacity:0.75;margin-top:4px;display:block;}
+
+  /* ---------- Sections generic ---------- */
+  section{padding:96px 0;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:24px;
+    margin-bottom:52px;flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(28px,3.4vw,40px);max-width:16ch;}
+  .section-head p{max-width:38ch;color:var(--ink);opacity:0.72;font-size:15px;}
+
+  /* ---------- Departments ---------- */
+  .dept-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);
+  }
+  .dept-card{
+    background:var(--paper);padding:34px 30px;
+    transition:background .25s var(--ease);
+  }
+  .dept-card:hover{background:var(--paper-dim);}
+  .dept-icon{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--sage-pale);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:20px;
+  }
+  .dept-icon svg{width:20px;height:20px;stroke:var(--navy-deep);}
+  .dept-card h3{font-size:19px;margin-bottom:8px;}
+  .dept-card p{font-size:14px;color:var(--ink);opacity:0.72;margin-bottom:14px;}
+  .dept-link{font-size:13px;font-weight:600;color:var(--coral-dim);display:inline-flex;align-items:center;gap:6px;}
+  .dept-link svg{width:12px;height:12px;transition:transform .2s var(--ease);}
+  .dept-card:hover .dept-link svg{transform:translateX(3px);}
+
+  /* ---------- Approach / About ---------- */
+  .about{background:var(--navy-deep);color:var(--paper);}
+  .about .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:start;}
+  .about h2{color:var(--paper);font-size:clamp(28px,3.4vw,40px);max-width:14ch;}
+  .about .eyebrow{color:var(--sage);}
+  .approach-list{display:flex;flex-direction:column;}
+  .approach-item{
+    display:grid;grid-template-columns:56px 1fr;gap:20px;
+    padding:26px 0;border-top:1px solid rgba(247,245,240,0.14);
+  }
+  .approach-item:last-child{border-bottom:1px solid rgba(247,245,240,0.14);}
+  .approach-item .idx{font-family:'JetBrains Mono',monospace;color:var(--sage);font-size:14px;}
+  .approach-item h4{color:var(--paper);font-size:17px;margin-bottom:8px;}
+  .approach-item p{color:rgba(247,245,240,0.7);font-size:14.5px;}
+
+  /* ---------- Doctors ---------- */
+  .doctor-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  }
+  .doctor-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .doctor-photo{
+    aspect-ratio:4/5;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Newsreader',serif;font-size:34px;font-weight:600;
+    color:var(--paper);
+  }
+  .doctor-info{padding:18px 20px 22px;}
+  .doctor-info h4{font-size:16.5px;margin-bottom:3px;}
+  .doctor-info .spec{
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.04em;
+    color:var(--coral-dim);text-transform:uppercase;margin-bottom:10px;display:block;
+  }
+  .doctor-info p{font-size:13.5px;color:var(--ink);opacity:0.7;}
+
+  /* ---------- Testimonials ---------- */
+  .testimonials{background:var(--sage-pale);}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .testi-card{
+    background:var(--paper);padding:30px 28px;border:1px solid var(--line);
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .testi-quote{font-family:'Newsreader',serif;font-size:17px;font-style:italic;color:var(--navy-deep);line-height:1.5;}
+  .testi-who{font-size:13px;font-family:'JetBrains Mono',monospace;color:var(--ink);opacity:0.65;}
+
+  /* ---------- Appointment ---------- */
+  .appointment{background:var(--paper-dim);}
+  .appointment .wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;}
+  .appointment h2{font-size:clamp(28px,3.4vw,38px);max-width:13ch;margin-bottom:16px;}
+  .appointment p.lead{font-size:15px;opacity:0.75;max-width:36ch;margin-bottom:28px;}
+  .hours-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);}
+  .hours-row{
+    display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);
+    font-size:14px;
+  }
+  .hours-row span:first-child{font-weight:500;}
+  .hours-row span:last-child{font-family:'JetBrains Mono',monospace;color:var(--ink);opacity:0.7;}
+
+  form.book{
+    background:var(--paper);border:1px solid var(--line);padding:36px;
+  }
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
+  .field{display:flex;flex-direction:column;gap:7px;}
+  .field.full{grid-column:1/-1;}
+  label{font-size:12.5px;font-weight:600;letter-spacing:0.02em;color:var(--navy-deep);}
+  input,select,textarea{
+    font-family:'Inter',sans-serif;font-size:14.5px;
+    padding:11px 13px;border:1px solid var(--line);border-radius:2px;
+    background:var(--paper);color:var(--ink);
+  }
+  input:focus,select:focus,textarea:focus{border-color:var(--coral);}
+  textarea{resize:vertical;min-height:80px;}
+  form.book .btn-primary{width:100%;justify-content:center;margin-top:6px;padding:13px;font-size:15px;}
+  .form-note{font-size:12px;opacity:0.6;margin-top:14px;text-align:center;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy-deep);color:rgba(247,245,240,0.78);padding:64px 0 28px;}
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
+    padding-bottom:44px;border-bottom:1px solid rgba(247,245,240,0.14);
+  }
+  .footer-grid h5{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--paper);margin-bottom:18px;
+  }
+  .footer-grid .logo{color:var(--paper);margin-bottom:14px;}
+  .footer-grid p{font-size:14px;line-height:1.7;}
+  .footer-grid ul li{margin-bottom:10px;font-size:14px;}
+  .footer-grid ul li a:hover{color:var(--paper);}
+  .footer-bottom{
+    display:flex;justify-content:space-between;padding-top:24px;font-size:12.5px;
+    color:rgba(247,245,240,0.5);flex-wrap:wrap;gap:10px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:920px){
+    .nav-links{display:none;}
+    .menu-toggle{display:block;}
+    .hero .wrap{grid-template-columns:1fr;}
+    .stat-bar .wrap{grid-template-columns:repeat(2,1fr);}
+    .dept-grid{grid-template-columns:repeat(2,1fr);}
+    .about .wrap{grid-template-columns:1fr;}
+    .doctor-grid{grid-template-columns:repeat(2,1fr);}
+    .testi-grid{grid-template-columns:1fr;}
+    .appointment .wrap{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    .dept-grid{grid-template-columns:1fr;}
+    .doctor-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .emergency-strip .wrap{justify-content:center;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<div class="emergency-strip">
+  <div class="wrap">
+    <span><span class="dot" aria-hidden="true"></span>Emergency? Call 911 immediately.</span>
+    <span>24/7 Emergency Line: <a href="tel:15550192020">(555) 019-2020</a></span>
+  </div>
+</div>
+
+<header class="site">
+  <nav class="nav">
+    <a href="#top" class="logo">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="13" r="12" stroke="#E8604C" stroke-width="1.6"/>
+        <path d="M4 13H9L11 8L14.5 18L17 13H22" stroke="#0F3D3E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Meridian General
+    </a>
+    <div class="nav-links">
+      <a href="#departments">Departments</a>
+      <a href="#doctors">Doctors</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Patients</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#appointment" class="btn btn-primary">Book Appointment</a>
+    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow hero-eyebrow">Meridian General Hospital</span>
+        <h1>Care that keeps pace with your life.</h1>
+        <p class="lead">Full-spectrum medicine from a team that treats the person, not just the chart — with 24/7 emergency care, 20 specialist departments, and same-week appointments across the board.</p>
+        <div class="hero-ctas">
+          <a href="#appointment" class="btn btn-primary">Book an Appointment</a>
+          <a href="#doctors" class="btn btn-outline">Find a Doctor</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="vitals-card">
+          <div class="vitals-row">
+            <span class="vitals-label">Avg. ER Wait</span>
+            <span class="vitals-value">11<small>min</small></span>
+          </div>
+          <div class="vitals-row">
+            <span class="vitals-label">On-call Physicians</span>
+            <span class="vitals-value">32<small>tonight</small></span>
+          </div>
+          <div class="vitals-row">
+            <span class="vitals-label">Patient Satisfaction</span>
+            <span class="vitals-value">98<small>%</small></span>
+          </div>
+        </div>
+        <svg class="live-line" viewBox="0 0 400 60" preserveAspectRatio="none">
+          <path class="pulse-path" d="M0,30 L60,30 L75,10 L90,50 L105,30 L400,30" style="stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2.4s ease-out forwards;"/>
+        </svg>
+      </div>
+    </div>
+    <div class="pulse-divider on-navy" aria-hidden="true">
+      <svg viewBox="0 0 1180 46" preserveAspectRatio="none">
+        <path class="pulse-path" d="M0,23 L260,23 L280,4 L300,42 L320,23 L860,23 L880,6 L900,40 L920,23 L1180,23"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="stat-bar">
+    <div class="wrap">
+      <div class="stat"><span class="num">46</span><span class="label">Years serving the region</span></div>
+      <div class="stat"><span class="num">128</span><span class="label">Attending physicians</span></div>
+      <div class="stat"><span class="num">20</span><span class="label">Specialist departments</span></div>
+      <div class="stat"><span class="num">24/7</span><span class="label">Emergency &amp; trauma care</span></div>
+    </div>
+  </section>
+
+  <section id="departments">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Departments</span>
+          <h2 style="margin-top:12px;">Specialist care under one roof</h2>
+        </div>
+        <p>From routine checkups to complex procedures, our departments coordinate directly so your care never gets lost in handoffs.</p>
+      </div>
+
+      <div class="dept-grid">
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+          <h3>Cardiology</h3>
+          <p>Diagnostics, interventional procedures, and long-term heart health management.</p>
+          <a href="#appointment" class="dept-link">Book a consult <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2a2.5 2.5 0 0 1 2.5 2.5v15a2.5 2.5 0 0 1-5 0V13M9.5 2a2.5 2.5 0 0 0-2.5 2.5v3M9.5 2a2.5 2.5 0 0 0 2.5 2.5M14.5 2a2.5 2.5 0 0 0-2.5 2.5v15a2.5 2.5 0 0 0 5 0V13"/></svg></div>
+          <h3>Neurology</h3>
+          <p>Comprehensive treatment for the brain, spine, and nervous system.</p>
+          <a href="#appointment" class="dept-link">Book a consult <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4l2-3 2 6 2-3h2"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>Orthopedics</h3>
+          <p>Joint, bone, and sports-injury care, from imaging through rehabilitation.</p>
+          <a href="#appointment" class="dept-link">Book a consult <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg></div>
+          <h3>Pediatrics</h3>
+          <p>Checkups, vaccinations, and specialist care built around younger patients.</p>
+          <a href="#appointment" class="dept-link">Book a consult <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8c0 4 3 6 7 6s7-2 7-6"/></svg></div>
+          <h3>Oncology</h3>
+          <p>Personalized cancer treatment plans backed by tumor-board review.</p>
+          <a href="#appointment" class="dept-link">Book a consult <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 5 6.5 5c2 0 3.5 1 4 2 .5-1 2-2 4-2 3.5 0 6 3.5 4 7.5C19 16.65 12 21 12 21z" fill="none"/><path d="M12 21s-7-4.35-9.5-8.5"/></svg></div>
+          <h3>Maternity &amp; Newborn</h3>
+          <p>Prenatal care, delivery suites, and a dedicated newborn intensive care unit.</p>
+          <a href="#appointment" class="dept-link">Book a consult <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Our approach</span>
+        <h2 style="margin-top:12px;">Medicine built around one patient at a time</h2>
+        <p style="color:rgba(247,245,240,0.7);margin-top:18px;font-size:15px;max-width:38ch;">We keep care teams small and communication direct, so decisions happen faster and nothing falls through the cracks.</p>
+      </div>
+      <div class="approach-list">
+        <div class="approach-item">
+          <span class="idx">01</span>
+          <div><h4>One coordinated chart</h4><p>Every specialist you see reads from the same record, in real time, so you never repeat your history twice.</p></div>
+        </div>
+        <div class="approach-item">
+          <span class="idx">02</span>
+          <div><h4>Same-week specialist access</h4><p>Referrals move within our own network, which means most specialist visits happen in days, not months.</p></div>
+        </div>
+        <div class="approach-item">
+          <span class="idx">03</span>
+          <div><h4>A named point of contact</h4><p>You get one care coordinator for the length of your treatment, not a rotating call center.</p></div>
+        </div>
+        <div class="approach-item">
+          <span class="idx">04</span>
+          <div><h4>Transparent pricing</h4><p>Cost estimates are provided before any non-emergency procedure, in plain language.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="pulse-divider on-navy" aria-hidden="true">
+      <svg viewBox="0 0 1180 46" preserveAspectRatio="none">
+        <path class="pulse-path" d="M0,23 L260,23 L280,4 L300,42 L320,23 L860,23 L880,6 L900,40 L920,23 L1180,23"/>
+      </svg>
+    </div>
+  </section>
+
+  <section id="doctors">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Our physicians</span>
+          <h2 style="margin-top:12px;">Meet a few of our specialists</h2>
+        </div>
+        <p>128 attending physicians across 20 departments. Every profile lists board certifications and years in practice.</p>
+      </div>
+
+      <div class="doctor-grid">
+        <div class="doctor-card">
+          <div class="doctor-photo" style="background:#0f3d3e;">AR</div>
+          <div class="doctor-info">
+            <h4>Dr. Amara Reyes</h4>
+            <span class="spec">Cardiology</span>
+            <p>18 years in practice · Board Certified</p>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <div class="doctor-photo" style="background:#7fa99b;">JK</div>
+          <div class="doctor-info">
+            <h4>Dr. James Kwon</h4>
+            <span class="spec">Neurology</span>
+            <p>12 years in practice · Board Certified</p>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <div class="doctor-photo" style="background:#c94f3d;">SP</div>
+          <div class="doctor-info">
+            <h4>Dr. Sofia Patel</h4>
+            <span class="spec">Pediatrics</span>
+            <p>9 years in practice · Board Certified</p>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <div class="doctor-photo" style="background:#12211f;">ML</div>
+          <div class="doctor-info">
+            <h4>Dr. Marcus Lee</h4>
+            <span class="spec">Orthopedics</span>
+            <p>21 years in practice · Board Certified</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Patient stories</span>
+          <h2 style="margin-top:12px;">What patients tell us afterward</h2>
+        </div>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <p class="testi-quote">"The ER team had me stable and in a bed within fifteen minutes. Nobody made me repeat my own medical history five times."</p>
+          <span class="testi-who">— Patient, Emergency Department</span>
+        </div>
+        <div class="testi-card">
+          <p class="testi-quote">"My cardiologist called me herself with test results instead of leaving it to a portal message. That mattered more than I expected."</p>
+          <span class="testi-who">— Patient, Cardiology</span>
+        </div>
+        <div class="testi-card">
+          <p class="testi-quote">"We got a pediatric specialist appointment in four days after our referral. Our old clinic quoted us six weeks."</p>
+          <span class="testi-who">— Parent, Pediatrics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="appointment" id="appointment">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Book a visit</span>
+        <h2 style="margin-top:12px;">Request an appointment</h2>
+        <p class="lead">Fill in your details and a care coordinator will confirm your time within one business day. For urgent symptoms, call the emergency line instead of booking online.</p>
+
+        <div class="hours-list">
+          <div class="hours-row"><span>Mon – Fri</span><span>7:00 AM – 8:00 PM</span></div>
+          <div class="hours-row"><span>Saturday</span><span>8:00 AM – 5:00 PM</span></div>
+          <div class="hours-row"><span>Sunday</span><span>9:00 AM – 2:00 PM</span></div>
+          <div class="hours-row"><span>Emergency Dept.</span><span>Open 24/7</span></div>
+        </div>
+      </div>
+
+      <form class="book" id="bookingForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" name="fname" required>
+          </div>
+          <div class="field">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" name="lname" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="dept">Department</label>
+            <select id="dept" name="dept">
+              <option>Cardiology</option>
+              <option>Neurology</option>
+              <option>Orthopedics</option>
+              <option>Pediatrics</option>
+              <option>Oncology</option>
+              <option>Maternity &amp; Newborn</option>
+              <option>General / Not sure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="date">Preferred date</label>
+            <input type="date" id="date" name="date">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field full">
+            <label for="notes">Reason for visit</label>
+            <textarea id="notes" name="notes" placeholder="Briefly describe your symptoms or reason for the visit"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Request Appointment</button>
+        <p class="form-note">This form is for scheduling only. If you are experiencing a medical emergency, call 911.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+
+
+
+
+
+
+
+
+<title> — PDF Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#0B0C0C;
+    --ink:#F2F1EC;
+    --ink-soft:#8C9490;
+    --teal:#4FB3AE;
+    --teal-dark:#2F6F6D;
+    --card:#151716;
+    --line:#2A2D2B;
+    --stamp:#E0793F;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.35);
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .app{
+    display:grid;
+    grid-template-columns: 360px 1fr;
+    height:100vh;
+  }
+
+  /* ---------- Sidebar / Catalog ---------- */
+  .catalog{
+    background:var(--paper);
+    border-right:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+
+  .brand{
+    padding:28px 28px 18px;
+    border-bottom:1px solid var(--line);
+  }
+  .brand .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:6px;
+  }
+  .brand h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:28px;
+    line-height:1.1;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .brand p{
+    margin:8px 0 0;
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+
+  .dropzone{
+    margin:18px 20px;
+    border:1.5px dashed var(--line);
+    border-radius:10px;
+    padding:22px 16px;
+    text-align:center;
+    cursor:pointer;
+    transition: border-color .18s ease, background .18s ease;
+    background: rgba(255,255,255,0.02);
+  }
+  .dropzone:hover, .dropzone.dragover{
+    border-color:var(--teal);
+    background: rgba(79,179,174,0.08);
+  }
+  .dropzone .icon{
+    font-size:22px;
+    display:block;
+    margin-bottom:6px;
+  }
+  .dropzone .label{
+    font-size:13px;
+    font-weight:500;
+    color:var(--ink);
+  }
+  .dropzone .sub{
+    font-size:11.5px;
+    color:var(--ink-soft);
+    margin-top:3px;
+    font-family:'JetBrains Mono', monospace;
+  }
+  #fileInput{ display:none; }
+
+  .shelf-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:14px 20px 8px;
+  }
+  .shelf-header span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .shelf-header .count{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--teal);
+  }
+
+  .add-btn{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color:var(--paper);
+    background:var(--teal);
+    border:none;
+    border-radius:6px;
+    padding:7px 14px;
+    cursor:pointer;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .add-btn:hover{
+    background:var(--teal-dark);
+    color:var(--ink);
+  }
+  .add-btn:active{
+    transform: scale(0.97);
+  }
+
+  .shelf{
+    flex:1;
+    overflow-y:auto;
+    padding: 4px 16px 20px;
+  }
+
+  .empty-state{
+    margin-top:40px;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:13px;
+    padding:0 20px;
+    line-height:1.6;
+  }
+  .empty-state .glyph{
+    font-family:'Fraunces', serif;
+    font-size:40px;
+    color:var(--line);
+    display:block;
+    margin-bottom:10px;
+  }
+
+  .card-entry{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left: 3px solid var(--line);
+    border-radius:8px;
+    padding:12px 14px 12px 16px;
+    margin-bottom:10px;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .card-entry:hover{ transform: translateX(2px); }
+  .card-entry.active{
+    border-left-color:var(--teal);
+    background: #1D211F;
+  }
+  .card-entry .row-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .card-entry .fname{
+    font-size:13.5px;
+    font-weight:500;
+    line-height:1.35;
+    word-break:break-word;
+    color:var(--ink);
+
+  }
+  .card-entry .remove{
+    flex-shrink:0;
+    border:none;
+    background:none;
+    color:var(--ink-soft);
+    font-size:15px;
+    cursor:pointer;
+    line-height:1;
+    padding:2px 4px;
+    border-radius:4px;
+  }
+  .card-entry .remove:hover{
+    color:var(--stamp);
+    background:rgba(196,96,46,0.08);
+  }
+  .card-entry .meta{
+    display:flex;
+    gap:10px;
+    margin-top:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color:var(--ink-soft);
+  }
+  .card-entry .badge{
+    display:inline-block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    color:var(--teal-dark);
+    background:rgba(47,111,109,0.1);
+    border-radius:4px;
+    padding:1px 6px;
+    margin-top:8px;
+  }
+
+  /* ---------- Viewer ---------- */
+  .viewer{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    background: #000000;
+  }
+  .viewer-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 28px;
+    border-bottom:1px solid var(--line);
+    background:var(--paper);
+  }
+  .viewer-header .title{
+    font-family:'Fraunces', serif;
+    font-size:18px;
+    font-weight:500;
+    color:var(--ink);
+    max-width:70%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .viewer-header .actions a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color:var(--teal-dark);
+    text-decoration:none;
+    border:1px solid var(--teal);
+    padding:6px 12px;
+    border-radius:6px;
+    transition: background .15s ease, color .15s ease;
+  }
+  .viewer-header .actions a:hover{
+    background:var(--teal);
+    color:#fff;
+  }
+
+  .viewer-body{
+    flex:1;
+    position:relative;
+  }
+  .viewer-body iframe{
+    width:100%;
+    height:100%;
+    border:none;
+    background:#525659;
+  }
+
+  .viewer-empty{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    color:var(--ink-soft);
+    text-align:center;
+    padding:20px;
+  }
+  .viewer-empty .stamp{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:22px;
+    color:var(--ink);
+    border:2px solid var(--stamp);
+    color:var(--stamp);
+    padding:10px 22px;
+    border-radius:4px;
+    transform:rotate(-3deg);
+    margin-bottom:22px;
+    opacity:0.85;
+  }
+  .viewer-empty p{
+    max-width:320px;
+    font-size:13.5px;
+    line-height:1.6;
+    margin:0;
+  }
+
+  @media (max-width: 780px){
+    .app{ grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+    .catalog{ border-right:none; border-bottom:1px solid var(--line); max-height:45vh; }
+  }
+</style>
+</head>
+<body>
+<p>Medical Report on the condition of the patient</p>
+<div class="app">
+  <!-- Catalog / Sidebar -->
+  <aside class="catalog">
+    <div class="brand">
+      <div class="eyebrow">Local &amp; private</div>
+      <h1></h1>
+      <p>Upload PDFs and read them right here. </p>
+    </div>
+
+    <div class="dropzone" id="dropzone">
+      <span class="icon">📄</span>
+      <div class="label">Drop PDFs here, or click to browse</div>
+      <div class="sub">.pdf only</div>
+      <input type="file" id="fileInput" accept="application/pdf" multiple>
+    </div>
+
+    <div class="shelf-header">
+      <span>On the shelf</span>
+      <button class="add-btn" id="addBtn">+ Add File</button>
+    </div>
+    <div class="shelf-header" style="padding-top:0;">
+      <span></span>
+      <span class="count" id="fileCount">0 files</span>
+    </div>
+
+    <div class="shelf" id="shelf">
+      <div class="empty-state" id="emptyState">
+        <span class="glyph">§</span>
+        No documents yet.<br>Add a PDF to begin.
+      </div>
+    </div>
+  </aside>
+
+  <!-- Viewer -->
+  <main class="viewer">
+    <div class="viewer-header" id="viewerHeader" style="display:none;">
+      <div class="title" id="viewerTitle">—</div>
+      <div class="actions">
+        <a id="openTab" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
+      </div>
+    </div>
+    <div class="viewer-body" id="viewerBody">
+      <div class="viewer-empty" id="viewerEmpty">
+        <div class="stamp">READ ME</div>
+        <p>Select a document from the shelf on the left to view it here. Your files stay on this device for the length of this session.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  const dropzone   = document.getElementById('dropzone');
+  const fileInput  = document.getElementById('fileInput');
+  const shelf      = document.getElementById('shelf');
+  const emptyState = document.getElementById('emptyState');
+  const fileCount  = document.getElementById('fileCount');
+  const viewerBody   = document.getElementById('viewerBody');
+  const viewerEmpty  = document.getElementById('viewerEmpty');
+  const viewerHeader = document.getElementById('viewerHeader');
+  const viewerTitle  = document.getElementById('viewerTitle');
+  const openTab      = document.getElementById('openTab');
+
+  // In-memory store: { id, name, size, url, file }
+  let docs = [];
+  let activeId = null;
+  let idSeq = 0;
+
+  function formatSize(bytes){
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024*1024) return (bytes/1024).toFixed(0) + ' KB';
+    return (bytes/(1024*1024)).toFixed(1) + ' MB';
+  }
+
+  function addFiles(fileList){
+    const incoming = Array.from(fileList).filter(f => f.type === 'application/pdf' || f.name.toLowerCase().endsWith('.pdf'));
+    incoming.forEach(file => {
+      const id = 'doc-' + (idSeq++);
+      const url = URL.createObjectURL(file);
+      docs.push({ id, name: file.name, size: file.size, url });
+    });
+    renderShelf();
+    if (incoming.length && activeId === null){
+      openDoc(docs[docs.length - incoming.length].id);
+    }
+  }
+
+  function removeDoc(id, evt){
+    if (evt) evt.stopPropagation();
+    const doc = docs.find(d => d.id === id);
+    if (doc) URL.revokeObjectURL(doc.url);
+    docs = docs.filter(d => d.id !== id);
+    if (activeId === id){
+      activeId = null;
+      showEmptyViewer();
+    }
+    renderShelf();
+  }
+
+  function openDoc(id){
+    activeId = id;
+    const doc = docs.find(d => d.id === id);
+    if (!doc) return;
+    viewerEmpty.style.display = 'none';
+    viewerHeader.style.display = 'flex';
+    viewerTitle.textContent = doc.name;
+    openTab.href = doc.url;
+
+    let iframe = document.getElementById('pdfFrame');
+    if (!iframe){
+      iframe = document.createElement('iframe');
+      iframe.id = 'pdfFrame';
+      viewerBody.appendChild(iframe);
+    }
+    iframe.src = doc.url;
+    renderShelf();
+  }
+
+  function showEmptyViewer(){
+    const iframe = document.getElementById('pdfFrame');
+    if (iframe) iframe.remove();
+    viewerHeader.style.display = 'none';
+    viewerEmpty.style.display = 'flex';
+  }
+
+  function renderShelf(){
+    fileCount.textContent = docs.length + (docs.length === 1 ? ' file' : ' files');
+    shelf.innerHTML = '';
+    if (docs.length === 0){
+      shelf.appendChild(emptyState);
+      emptyState.style.display = 'block';
+      return;
+    }
+    docs.forEach(doc => {
+      const card = document.createElement('div');
+      card.className = 'card-entry' + (doc.id === activeId ? ' active' : '');
+      card.innerHTML = `
+        <div class="row-top">
+          <div class="fname">${escapeHtml(doc.name)}</div>
+          <button class="remove" title="Remove">✕</button>
+        </div>
+        <div class="meta">
+          <span>${formatSize(doc.size)}</span>
+          <span>PDF</span>
+        </div>
+        ${doc.id === activeId ? '<span class="badge">now reading</span>' : ''}
+      `;
+      card.addEventListener('click', () => openDoc(doc.id));
+      card.querySelector('.remove').addEventListener('click', (e) => removeDoc(doc.id, e));
+      shelf.appendChild(card);
+    });
+  }
+
+  function escapeHtml(str){
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  // Upload interactions
+  dropzone.addEventListener('click', () => fileInput.click());
+  document.getElementById('addBtn').addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', (e) => addFiles(e.target.files));
+
+  ['dragenter','dragover'].forEach(evt =>
+    dropzone.addEventListener(evt, (e) => {
+      e.preventDefault(); e.stopPropagation();
+      dropzone.classList.add('dragover');
+    })
+  );
+  ['dragleave','drop'].forEach(evt =>
+    dropzone.addEventListener(evt, (e) => {
+      e.preventDefault(); e.stopPropagation();
+      dropzone.classList.remove('dragover');
+    })
+  );
+  dropzone.addEventListener('drop', (e) => {
+    if (e.dataTransfer.files.length) addFiles(e.dataTransfer.files);
+  });
+  renderShelf();
+</script>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <span class="logo">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <circle cx="13" cy="13" r="12" stroke="#E8604C" stroke-width="1.6"/>
+            <path d="M4 13H9L11 8L14.5 18L17 13H22" stroke="#F7F5F0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Meridian General
+        </span>
+        <p>442 Ashcombe Avenue<br>Riverton, CA 94112</p>
+        <p style="margin-top:10px;">Main line: <a href="tel:15550194400">(555) 019-4400</a></p>
+      </div>
+      <div>
+        <h5>Departments</h5>
+        <ul>
+          <li><a href="#departments">Cardiology</a></li>
+          <li><a href="#departments">Neurology</a></li>
+          <li><a href="#departments">Orthopedics</a></li>
+          <li><a href="#departments">Pediatrics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Patients</h5>
+        <ul>
+          <li><a href="#appointment">Book an appointment</a></li>
+          <li><a href="#doctors">Find a doctor</a></li>
+          <li><a href="#testimonials">Patient stories</a></li>
+          <li><a href="#about">Billing &amp; insurance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Emergency</h5>
+        <ul>
+          <li>24/7 Line: <a href="tel:15550192020">(555) 019-2020</a></li>
+          <li>Life-threatening? Call 911</li>
+          <li><a href="#top">Directions to ER</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meridian General Hospital. All rights reserved.</span>
+      <span>Privacy Policy · Patient Rights · Accessibility</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Prevent actual form submission (demo site) and give lightweight confirmation.
+  document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    const original = btn.textContent;
+    btn.textContent = 'Request received ✓';
+    btn.style.background = '#7fa99b';
+    setTimeout(()=>{ btn.textContent = original; btn.style.background = ''; this.reset(); }, 2600);
+  });
+
+  // Mobile menu toggle
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle.addEventListener('click', ()=>{
+    const open = links.style.display === 'flex';
+    links.style.display = open ? 'none' : 'flex';
+    links.style.cssText += open ? '' : 'position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#f7f5f0;padding:20px 28px;border-bottom:1px solid rgba(18,33,31,0.12);gap:18px;';
+  });
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
